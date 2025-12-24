@@ -26,7 +26,7 @@ PixDash is a classic 2D platformer where the player:
 
 * Git
 * Unity Hub
-* Unity Editor **2021 LTS or later**
+* Unity Editor **6.3 LTS(6000.3.2f1)**
 
 ---
 
