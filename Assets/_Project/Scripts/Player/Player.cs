@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public float groundRadius = 0.2f;
+    private Animator animator;
 
     private Rigidbody2D rb;
     private float horizontal;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -38,6 +40,10 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+        float speed=Mathf.Abs(horizontal*moveSpeed);
+        animator.SetFloat("Horizontal Speed",speed);
+        animator.SetBool("isGrounded",isGrounded);
+        animator.SetFloat("Vertical Speed",rb.linearVelocity.y);
     }
 
     private void FixedUpdate()
